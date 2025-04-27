@@ -3,14 +3,16 @@ div.home{
     width: 100vw;
     height: 100vh;
     font-size: 2em;
-    
+
     background-image: url("../src/nightsky.png");
     background-size: cover;
     &>h1{
-      position:absolute;
-      left: 32px;
-      bottom: 72px;
-    }
+        position:absolute;
+        width: max-content;
+        font-size: 6rem;
+        left: 32px;
+        bottom: 72px;
+}
 }
 div.menuBar{
     position:sticky;
@@ -34,7 +36,7 @@ div.menuBar{
         font-size: 100%;
         text-decoration: none;
         &:hover{
-            background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
         }
     }
 }
@@ -42,21 +44,40 @@ div.aboutUs{
     position: relative;
     display: block;
     width: 100vw;
-    height: max-content;
+    height: 80vh;
     padding: 64px;
     font-size: 1rem;
     background-color: var(--layer00);
     background-image: 
-        linear-gradient(0deg,rgba(24, 24, 24, 0.8),50%, rgba(20, 20, 20, 0.5)),
-        url("../src/studio.png");
-    
+    linear-gradient(0deg,rgba(from var(--layer00) r g b /0.8),20%, rgb(from var(--layer00) r g b /0.1)),
+    url("./src/studio.png");
+        
     background-size: cover;
     & p{
         font-size: 1em;
-        max-width: 800px;
+        width:clamp(30em, 80%, 60em);
+    }
+
+}
+div.purpose{
+    position: relative;
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    width: 100vw;
+    height: max-content;
+    padding: 64px;
+    font-size: 1rem;
+    background-color: var(--layer00);
+    & h2{
+        font-size: 1.8em;
+    }
+    & p{
+        text-align: center;
+        width: 30em;
     }
 }
-
 div.news{
     position: relative;
     display: block;
@@ -64,16 +85,24 @@ div.news{
     height: max-content;
     padding: 64px;
     font-size: 1rem;
-    background-color: var(--layer01);
-}
-div.contacts{
+    background-color: var(--layer03);
+    }
+    div.contacts{
     position: relative;
     display: block;
     width: 100vw;
     height: max-content;
     padding: 64px;
     font-size: 1rem;
-    background-color: var(--layer01);
+    background-color: var(--layer02);
+    &>div.contactList{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 16px;
+        
+    }
 }
 div.supportUs{
     position: relative;
@@ -83,6 +112,13 @@ div.supportUs{
     padding: 64px;
     font-size: 1rem;
     background-color: var(--layer01);
+    &>div.supportList{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 16px;
+    }
 }
 footer{
     position:relative;
@@ -94,12 +130,12 @@ footer{
     font-style: italic;
     padding: 20px;
     width: 100%;
-& p{
-    color: #ecf0f1;
-}
-& .contact-links a{
-    text-decoration: none;
-}
+    & p{
+        color: #ecf0f1;
+    }
+    & .contact-links a{
+        text-decoration: none;
+    }
 }
 @media (min-width: 600px) {
 
