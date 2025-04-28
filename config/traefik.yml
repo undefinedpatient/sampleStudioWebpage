@@ -1,0 +1,28 @@
+#Global Config
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+#Log level: DEBUG
+log:
+  level: DEBUG
+
+#api configuration allowing dashboard and direct access
+api:
+  dashboard: true
+  insecure: true
+
+#Configure entrypoint for traefik
+entryPoints:
+  web:
+    address: :80
+  websecure:
+    address: :443
+  api:
+    address: :3000
+
+#Set the provider where traefik to look up to
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false

@@ -1,27 +1,57 @@
 services:
+  reverse-proxy:
+    container_name: reverse-proxy
+    image: traefik:latest
+
+    ports:
+      #Allowing external request
+      - "80:80"
+      - "443:443"
+      - "3000:3000"
+      - "8080:8080"
+    networks:
+      - network0
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config/traefik.yml:/etc/traefik/traefik.yml
   frontend:
+    container_name: frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    ports:
-      - "8080:80"
     volumes:
       - ./frontend:/usr/share/nginx/html
     depends_on:
       - backend
     networks:
       - network0
+    ports:
+      - "8081:80" #Bypass
+    labels:
+      - traefik.enable=true 
+      #Indicating the router "ROUTER-frontend" should only listen to port web(80)
+      - traefik.http.routers.ROUTER-frontend.entrypoints=web
+      #Indicating the router "ROUTER-frontend" should allow incoming host "localhost"
+      - traefik.http.routers.ROUTER-frontend.rule=Host(`localhost`)
+      
   backend:
+    container_name: backend
     build:
       context: ./backend
       dockerfile: Dockerfile
-    
-    ports:
-      - "3000:3000"
     environment:
       - NODE_ENV=development
     networks:
       - network0
+    labels:
+      - traefik.enable=true
+      #Indicating the router "ROUTER-frontend" should only listen to port web(3000)
+      - traefik.http.routers.ROUTER-backend.entrypoints=api
+      #Indicating the router "ROUTER-frontend" should allow incoming host "localhost" and having correct header
+      - traefik.http.routers.ROUTER-backend.rule=Host(`localhost`) && Header(`customHeader`, `valid`)
+      
+
 
 networks:
   network0:
