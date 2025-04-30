@@ -14,7 +14,8 @@ services:
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./config/traefik.yml:/etc/traefik/traefik.yml
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml
+      - ./traefik/config.yml:/etc/traefik/config.yml
   frontend:
     container_name: frontend
     build:
@@ -30,10 +31,6 @@ services:
       - "8081:80" #Bypass
     labels:
       - traefik.enable=true 
-      #Indicating the router "ROUTER-frontend" should only listen to port web(80)
-      - traefik.http.routers.ROUTER-frontend.entrypoints=web
-      #Indicating the router "ROUTER-frontend" should allow incoming host "localhost"
-      - traefik.http.routers.ROUTER-frontend.rule=Host(`localhost`)
       
   backend:
     container_name: backend
@@ -46,12 +43,7 @@ services:
       - network0
     labels:
       - traefik.enable=true
-      #Indicating the router "ROUTER-frontend" should only listen to port web(3000)
-      - traefik.http.routers.ROUTER-backend.entrypoints=api
-      #Indicating the router "ROUTER-frontend" should allow incoming host "localhost" and having correct header
-      - traefik.http.routers.ROUTER-backend.rule=Host(`localhost`) && Header(`customHeader`, `valid`)
-      
-
+    
 
 networks:
   network0:

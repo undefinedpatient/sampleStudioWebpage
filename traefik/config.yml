@@ -1,0 +1,23 @@
+http:
+  routers:
+    ROUTER-frontend:
+      rule: Host(`localhost`)
+      entrypoints:
+        - web
+      service: SERVICE-frontend
+
+    ROUTER-backend:
+      rule: Host(`localhost`)
+      entrypoints:
+        - api
+      service: SERVICE-backend
+  
+  services:
+    SERVICE-frontend:
+      loadBalancer:
+        servers:
+          - url: "http://frontend:80"
+    SERVICE-backend:
+      loadBalancer:
+        servers:
+          - url: "http://backend:3000"
