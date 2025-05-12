@@ -1,4 +1,4 @@
-# VERTEX
+# Second Hand Studio
 
 ## Introduction
 
