@@ -50,7 +50,7 @@ div.aboutUs{
     background-color: var(--layer00);
     background-image: 
     linear-gradient(0deg,rgba(from var(--layer00) r g b /0.8),20%, rgb(from var(--layer00) r g b /0.1)),
-    url("./src/studio.png");
+    url("../src/studio.png");
         
     background-size: cover;
     & p{
@@ -86,8 +86,9 @@ div.news{
     padding: 64px;
     font-size: 1rem;
     background-color: var(--layer03);
-    }
-    div.contacts{
+    
+}
+div.contacts{
     position: relative;
     display: block;
     width: 100vw;
@@ -95,13 +96,16 @@ div.news{
     padding: 64px;
     font-size: 1rem;
     background-color: var(--layer02);
-    &>div.contactList{
+    background-image:
+        linear-gradient(0deg,rgba(from var(--layer00) r g b /0.8),20%, rgb(from var(--layer00) r g b /0.1)),
+        url("../src/fightSong.png");
+    background-size: cover;
+    & div.contactList{
         position: relative;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         padding: 16px;
-        
     }
 }
 div.supportUs{

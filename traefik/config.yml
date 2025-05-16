@@ -7,11 +7,18 @@ http:
       service: SERVICE-frontend
 
     ROUTER-backend:
-      rule: Host(`localhost`)
+      rule: Host(`localhost`) && PathPrefix(`/api`)
       entrypoints:
         - api
       service: SERVICE-backend
-  
+      middlewares:
+        - strip-api-prefix
+        
+  middlewares:
+    strip-api-prefix:
+      stripPrefix:
+        prefixes:
+          - "/api"
   services:
     SERVICE-frontend:
       loadBalancer:
