@@ -16,16 +16,14 @@ api:
 entryPoints:
   web:
     address: :80
-  websecure:
-    address: :443
   api:
     address: :3000
 
 #Set the provider where traefik to look up to
 providers:
-  docker:
-    endpoint: "unix:///var/run/docker.sock"
-    exposedByDefault: false
   file:
     filename: /etc/traefik/config.yml
     watch: true
+  # docker:
+  #   endpoint: "unix:///var/run/docker.sock"
+  #   exposedByDefault: false

@@ -29,9 +29,7 @@ services:
       - network0
     ports:
       - "8081:80" #Bypass
-    labels:
-      - traefik.enable=true 
-      
+
   backend:
     container_name: backend
     build:
@@ -44,7 +42,6 @@ services:
     labels:
       - traefik.enable=true
     
-
 networks:
   network0:
     driver: bridge

@@ -85,8 +85,9 @@ div.news{
     height: max-content;
     padding: 64px;
     font-size: 1rem;
-    background-color: var(--layer03);
-    
+    background-color: var(--layer02);
+    /* background-image:
+        linear-gradient(0deg,rgba(from var(--layer00) r g b /1),20%, rgb(from var(--layer00) r g b /1)); */
 }
 div.contacts{
     position: relative;

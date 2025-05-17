@@ -1,6 +1,8 @@
 *{ 
     --layer00: rgb(42, 40, 51);
-    --layer01: rgb(51, 46, 73);
+    --layer01: rgb(50, 46, 68);
+    --layer02: rgb(45, 40, 71);
+    --layer03: rgb(43, 34, 85);
     color: white;
     margin: 0;
     padding: 0;
