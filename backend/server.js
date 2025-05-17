@@ -1,24 +1,40 @@
 const express = require('express');
 
-
 const app = express();
 const port = 3000;
-app.use(express.json())
+//middleware
+app.use(express.json());
+//
+app.get('/health', (req, res) => {
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
+  const requestLog = {
+    timestamp: new Date().toISOString(),
+    method: req.method,
+    url: req.originalUrl,
+    headers: req.headers,
+    query: req.query,
+    body: req.body,
+    ip: req.ip,
+    protocol: req.protocol,
+    hostname: req.hostname,
+  };
+  console.log("Health Checking From: "+JSON.stringify(req.headers, null, 2));
+  res.status(200).send(requestLog);
 });
-
-app.get('/', (req, res) => {
-  res.send('Hello from Express.js in Docker!');
-});
-
-// API endpoint for frontend
-app.get('/api/message', (req, res) => {
-  res.json({ message: 'Hello from the backend!' });
+app.get('/auth', (req, res)=>{
+  const requestLog = {
+    timestamp: new Date().toISOString(),
+    method: req.method,
+    url: req.originalUrl,
+    headers: req.headers,
+    query: req.query,
+    body: req.body,
+    ip: req.ip,
+    protocol: req.protocol,
+    hostname: req.hostname,
+  };
+  console.log("Auth Checking From: "+ JSON.stringify(req.headers, null, 2));
+  res.status(200).send(requestLog);
 });
 
 app.listen(port, () => {

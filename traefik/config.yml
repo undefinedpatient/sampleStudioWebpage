@@ -7,11 +7,22 @@ http:
       service: SERVICE-frontend
 
     ROUTER-backend:
-      rule: Host(`localhost`)
+      rule: Host(`localhost`) && Path(`/auth`)
       entrypoints:
         - api
+      middlewares:
+        - MIDDLEWARE-auth
+        - MIDDLEWARE-replace-path
       service: SERVICE-backend
 
+  middlewares:
+      MIDDLEWARE-auth:
+        forwardAuth:
+          address: "http://backend:3000/auth"
+      MIDDLEWARE-replace-path:
+        replacePath:
+          path: "/health"
+      
   services:
     SERVICE-frontend:
       loadBalancer:
