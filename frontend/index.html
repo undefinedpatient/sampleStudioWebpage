@@ -18,7 +18,7 @@
         <a href="#aboutUs">About Us</a>
         <a href="#news">News</a>
         <a href="#contacts">Contact</a>
-        <a href="#">Support Us</a>
+        <a href="#supportUs">Support Us</a>
     </div>
 
     <div class="aboutUs" id="aboutUs">
@@ -31,10 +31,17 @@
             Join us on this colorful journey!
         </p>
     </div>
-
+    
     <div class="news" id="news">
         <h2>News</h2>
         <p>
+             Generating random paragraphs can be an excellent way for writers to get their creative flow going at the beginning of the day.
+             The writer has no idea what topic the random paragraph will be about when it appears.
+             This forces the writer to use creativity to complete one of three common writing challenges.
+             The writer can use the paragraph as the first one of a short story and build upon it.
+             A second option is to use the random paragraph somewhere in a short story they create.
+             The third option is to have the random paragraph be the ending paragraph in a short story.
+             No matter which of these challenges is undertaken, the writer is forced to use creativity to incorporate the paragraph into their writing. 
         </p>
     </div>
 
@@ -42,26 +49,29 @@
         <h2>Contacts</h2>
         <div class="contactList">
             <a href="#">
-            <img src="./src/discord-icon.svg" height="140" width="140">
+            <img src="./src/discord-icon.svg">
             </a>
             <a href="#">
-            <img src="./src/twitter-icon.svg" height="140" width="140">
+            <img src="./src/twitter-icon.svg">
             </a>
             <a href="#">
-            <img src="./src/youtube-icon.svg" height="140" width="140">
+            <img src="./src/youtube-icon.svg">
             </a>
         </div>
-    </div> 
+    </div>
     <div class="supportUs" id="supportUs">
+        <video autoplay muted loop id="showCase">
+            <source src="https://cdn.pixabay.com/video/2020/07/03/43781-436252322_large.mp4" type="video/mp4">
+        </video>
         <h2>Support Us</h2>
         <div class="supportList">
             <a href="#">
-                <img src="./src/patreon-icon.svg" height="140" width="140">
+                <img src="./src/patreon-icon.svg">
             </a>
         </div>
     </div>
     <footer>
-        <p>&copy; 2025 Vertex. All rights reserved.</p>
+        <p>&copy; 2025 Second Hand Studio. All rights reserved.</p>
         <div class="contact-links">|
             <a href="#">contact@gmail.com</a> |
             <a href="#">+852 1234 5678</a> |
@@ -71,16 +81,6 @@
     </footer>
 </body>
 <script>
-    //Sample Function
-    async function fetchMessage() {
-        try {
-        // Use the backend service name defined in docker-compose.yml
-        const response = await fetch('http://127.0.0.1:3000/api/message');
-        const data = await response.json();
-        document.getElementById('message').textContent = data.message;
-        } catch (error) {
-        document.getElementById('message').textContent = 'Error fetching message: ' + error.message;
-        }
-    }
+
 </script>
 </html>
