@@ -73,7 +73,7 @@ div.purpose{
     height: max-content;
     padding: 64px;
     font-size: 1rem;
-    background-color: var(--layer00);
+    background-color: var(--layer04);
     & h2{
         font-size: 1.8em;
     }
@@ -89,9 +89,7 @@ div.news{
     height: max-content;
     padding: 64px;
     font-size: 1rem;
-    background-color: var(--layer02);
-    /* background-image:
-        linear-gradient(0deg,rgba(from var(--layer00) r g b /1),20%, rgb(from var(--layer00) r g b /1)); */
+    background-color: var(--layer03);
 }
 div.contacts{
     position: relative;
@@ -156,7 +154,7 @@ div.dev{
     padding: 64px;
     font-size: 1rem;
     background-color: var(--layer01);
-    background-image: linear-gradient(0deg,rgba(from var(--layer03) r g b /0),20%, rgb(from var(--layer03) r g b /0.5));
+    background-image: linear-gradient(0deg,rgba(from var(--layer03) r g b /0),10%, rgb(from var(--layer03) r g b /0.5));
     z-index: 1;
     
     & .devRow{
@@ -193,6 +191,8 @@ video{
     width: 100%;
     object-fit: cover;
     z-index: -1;
+    filter:brightness(70%);
+    overflow: hidden;
 }
 footer{
     position:relative;
