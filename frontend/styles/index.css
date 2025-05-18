@@ -2,16 +2,17 @@ div.home{
     position:relative; 
     width: 100vw;
     height: 100vh;
-    font-size: 2em;
-
+    overflow:hidden;
     background-image: url("../src/nightsky.png");
     background-size: cover;
     &>h1{
         position:absolute;
+        mix-blend-mode: soft-light;
         width: max-content;
-        font-size: 6rem;
+        line-height: 8rem;
+        font-size: 12rem;
         left: 32px;
-        bottom: 72px;
+        bottom: 128px;
 }
 }
 div.menuBar{
@@ -36,7 +37,10 @@ div.menuBar{
         font-size: 100%;
         text-decoration: none;
         &:hover{
-        background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        &:active{
+            background-color: rgba(255, 255, 255, 0.4);
         }
     }
 }
@@ -98,7 +102,7 @@ div.contacts{
     font-size: 1rem;
     background-color: var(--layer02);
     background-image:
-        linear-gradient(0deg,rgba(from var(--layer00) r g b /0.8),20%, rgb(from var(--layer00) r g b /0.1)),
+        linear-gradient(0deg,rgba(from var(--layer01) r g b /0.9),10%, rgba(from var(--layer01) r g b /0.1),90%, rgba(from var(--layer01) r g b /0.9)),
         url("../src/fightSong.png");
     background-size: cover;
     & div.contactList{
@@ -126,7 +130,8 @@ div.supportUs{
     padding: 64px;
     font-size: 1rem;
     background-color: var(--layer01);
-    z-index: 0;
+    background-image: linear-gradient(0deg,rgba(from var(--layer02) r g b /0),20%, rgb(from var(--layer02) r g b /1));
+    z-index: 1;
     overflow: hidden;
     &>div.supportList{
         position: relative;
@@ -143,7 +148,45 @@ div.supportUs{
         }
     }
 }
-video {
+div.dev{
+    position: relative;
+    display: block;
+    width: 100vw;
+    height: max-content;
+    padding: 64px;
+    font-size: 1rem;
+    background-color: var(--layer01);
+    background-image: linear-gradient(0deg,rgba(from var(--layer03) r g b /0),20%, rgb(from var(--layer03) r g b /0.5));
+    z-index: 1;
+    
+    & .devRow{
+        position: relative;
+        display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        padding: 4px;
+        margin: 16px;
+        width: 100%; 
+        border-radius: 32px;
+        background-color: rgba(from var(--layer01) r g b /1);
+    }
+    & input{
+        flex: 1 1 0;
+        padding: 16px;
+        border-radius: 32px;
+        outline: none;
+        background-color: transparent;
+    }
+    & button{
+        padding: 16px;
+        background-color: rgba(from var(--layer02) r g b /1);
+        border-radius: 32px;
+        &:hover{
+            filter: brightness(200%);
+        }
+    }
+}
+video{
     position: absolute;
         left: 0;
         top: 0;

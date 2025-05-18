@@ -1,8 +1,9 @@
 *{ 
-    --layer00: rgb(42, 40, 51);
-    --layer01: rgb(50, 46, 68);
-    --layer02: rgb(45, 40, 71);
-    --layer03: rgb(43, 34, 85);
+    --layer00: rgb(28, 25, 43);
+    --layer01: rgb(37, 33, 59);
+    --layer02: rgb(49, 43, 77);
+    --layer03: rgb(59, 51, 95);
+    --layer04: rgb(108, 97, 160);
     color: white;
     margin: 0;
     padding: 0;
@@ -15,11 +16,17 @@
 
 h1{
     font-size: 4em;
+    cursor: default;
+    user-select: none;
 }
 h2{
     font-size: 3em;
+    cursor: default;
+    user-select: none;
 }
 h3{
     font-size: 2.4em;
+    cursor: default;
+    user-select: none;
 }
 

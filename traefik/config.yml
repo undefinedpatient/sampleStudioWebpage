@@ -7,7 +7,7 @@ http:
       service: SERVICE-frontend
 
     ROUTER-backend:
-      rule: Host(`localhost`) && Path(`/auth`)
+      rule: Host(`localhost`) && Path(`/api`)
       entrypoints:
         - api
       middlewares:
